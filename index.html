@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="src/css/home.css">
+  <link rel="stylesheet" href="src/css/modal.css">
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="src/images/logo.png" alt="Logo">
+    </div>
+    <div class="menu">
+      <a href="#">HOME</a>
+      <a href="#">MOVIE</a>
+      <a href="#">TV SHOW</a>
+      <a href="#">WEB SERIES</a>
+      <a href="#">PRICING</a>
+      <div class="language-selector">
+        <select>
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+        </select>
+      </div>
+      <div class="sign-in-btn">
+        <a href="#">SIGN IN</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-featuring featuring">
+    <!-- Imagen encima de la cartelera -->
+    <div class="image-overlay">
+      <img src="src/images/sombra.png" alt="Imagen encima de la cartelera">
+    </div>
+    <!-- Película destacada aquí -->
+    <img src="" alt="Featured Movie" class="featuring-image">
+    <div class="featuring-overlay">
+      <h2 class="featuring-title"></h2>
+      <p class="featuring-description"></p>
+    </div>
+  </div>
+  
+
+  <div class="home sidebar-hidden" id="home">
+    <div class="home-sidebar sidebar hidden">
+      <div class="carousel"></div>
+    </div>
+    <div class="home-primary primary">
+      <div class="primary-user">
+      </div>
+      <div class="primary-list">
+        <div class="primaryPlaylist" data-category="action">
+          <h2 class="primaryPlaylist-title">Action</h2>
+          <div class="primaryPlaylist-container">
+            <div class="arrow left"><<</div>
+            <div id="action" class="primaryPlaylist-list">
+              <!-- Tus películas van aquí -->
+            </div>
+            <div class="arrow right">>></div>
+          </div>
+        </div>
+        <div class="primaryPlaylist" data-category="romance">
+          <h2 class="primaryPlaylist-title">Romance</h2>
+          <div class="primaryPlaylist-container">
+            <div class="arrow left"><<</div>
+            <div id="romance" class="primaryPlaylist-list">
+              <!-- Tus películas van aquí -->
+            </div>
+            <div class="arrow right">>></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/js/home.js"></script>
+</body>
+</html>
