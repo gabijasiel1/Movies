@@ -1,1 +1,336 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI';
+  background-color: #0F0D0D;
+  color: #FBE094;
+  overflow-x: hidden;
+}
 
+/* Home layout */
+.home {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: 
+    "sidebar primary"
+    "featuring featuring";
+}
+
+.home.search-active {
+  grid-template-rows: auto 150px;
+}
+
+.home.sidebar-hidden,
+.home.search-active {
+  grid-template-columns: 0 1fr;
+}
+
+.home.sidebar-visible {
+  grid-template-columns: 1fr 4fr;
+}
+
+.home-primary {
+  grid-area: primary;
+  padding: 20px;
+  overflow-y: hidden;
+}
+
+.home-featuring {
+  grid-area: featuring;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  max-height: 600px; 
+  overflow: hidden; 
+  background-color: #000; 
+  padding-left: 0; 
+  padding-right: 0; 
+}
+
+.featuring-description {
+  max-width: 30%; 
+  margin: left; 
+  justify-content: left;
+}
+
+.home-featuring img {
+  width: 110%; /* Ajusta el ancho de la imagen al contenedor */
+  height: 100%; /* Para mantener la relación de aspecto */
+  object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+  border-radius: 10px;
+}
+
+.home-featuring .featuring-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 101%;
+  padding: 20px;
+  margin-left: 50px;
+  background: rgba(0, 0, 0, 0);
+  color: rgb(199, 199, 199);
+  text-align: justify;
+}
+
+.home-sidebar {
+  grid-area: sidebar;
+  padding: 20px;
+  background-color: #171929;
+  color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  display: none;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.home-sidebar.show {
+  display: block;
+  transform: translateX(0);
+  animation: slideIn 0.5s forwards;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #171929;
+  color: #FBE094;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.logo-image img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.carousel img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.carousel img:hover {
+  transform: scale(1.1);
+}
+
+/* Main content */
+.primary-search {
+  margin-bottom: 20px;
+}
+
+.search input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #333;
+  color: #FBE094;
+}
+
+.primary-user {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.user img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.primary-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.primaryPlaylist {
+  margin-bottom: 40px;
+}
+
+.primaryPlaylist-title {
+  color: #FBE094;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.primaryPlaylist-container {
+  display: flex;
+}
+
+.primaryPlaylist-list {
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  flex-grow: 1;
+}
+
+.primaryPlaylistItem {
+  margin-right: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.primaryPlaylistItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.primaryPlaylistItem img {
+  cursor: pointer;
+  width: 170px;
+  height: 256px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.arrow {
+  height: 256px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Featuring */
+.featuring {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+.featuring-image img {
+  margin-right: 20px;
+}
+
+.featuring-title,
+.featuring-album {
+  margin: 0;
+}
+
+.featuring-album {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 20px;
+  position: fixed; 
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: #FBE094;
+  z-index: 10;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+.navbar a {
+  color: #FBE094;
+  text-decoration: none;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #FFD700;
+}
+
+.navbar .logo img {
+  max-height: 40px;
+  margin-left: 20px;
+}
+
+.navbar .menu {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .menu a {
+  margin: 0 15px;
+}
+
+.navbar .menu .language-selector,
+.navbar .menu .search-icon,
+.navbar .menu .sign-in-btn {
+  margin-left: 15px;
+  margin-right: 50px;
+}
+
+.navbar .sign-in-btn {
+  border: 1px solid #FBE094;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 1s;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+* {
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+.image-overlay {
+  position: absolute; /* Coloca el div encima de la cartelera */
+  top: 0; /* Posición desde la parte superior */
+  left: 0; /* Posición desde la izquierda */
+  width: 100%; /* Toma el ancho completo del contenedor */
+  height: 10%; /* Toma la altura completa del contenedor */
+}
+
+.image-overlay img {
+  width: 100%; /* Ajusta el ancho de la imagen al contenedor */
+  height: 250%; /* Ajusta la altura de la imagen al contenedor */
+  object-fit: cover; /* Ajusta la imagen para cubrir el contenedor */
+}
+
+.language-selector select {
+  background: none;
+  background-color: #0F0D0D;
+  color: #FBE094;
+  border: none;
+  font-weight: bold;
+}
